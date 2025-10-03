@@ -1,4 +1,5 @@
 package characters;
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
@@ -10,7 +11,11 @@ import lombok.SneakyThrows;
 public class CharacterFactory{
     private static final Random RANDOM = new Random();
     @SneakyThrows
-    public static Character createCharacter(){
+    public static Character createCharacter()throws
+        NoSuchMethodException,
+        InstantiationException,
+        IllegalAccessException,
+        InvocationTargetException {
         Reflections reflections = new Reflections("characters");
         Set<Class<? extends Character>> subTypes = reflections.getSubTypesOf(Character.class);
         Class<? extends Character>[] subTypesArray = subTypes.toArray(new Class[0]);

@@ -6,8 +6,11 @@ import characters.Elf;
 import characters.Hobbit;
 import characters.King;
 import characters.Knight;
+import lombok.SneakyThrows;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import java.lang.reflect.InvocationTargetException;
 
 class DemoTest {
     @Test
@@ -58,7 +61,11 @@ class DemoTest {
     }
 
     @Test
-    void factoryCreatesDifferentCharacters() {
+    void factoryCreatesDifferentCharacters()throws
+        NoSuchMethodException,
+        InstantiationException,
+        IllegalAccessException,
+        InvocationTargetException {
         Character c = CharacterFactory.createCharacter();
         assertNotNull(c);
         assertTrue(c instanceof Character);

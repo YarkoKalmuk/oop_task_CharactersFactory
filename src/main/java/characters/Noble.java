@@ -4,6 +4,10 @@ import java.util.Random;
 public abstract class Noble extends Character {
     protected static final Random rand = new Random();
 
+    public Noble() {
+        this(5, 15, 5, 15);
+    }
+
     public Noble(int minPower, int maxPower, int minHp, int maxHp) {
         super(minPower + rand.nextInt(maxPower - minPower + 1),
               minHp + rand.nextInt(maxHp - minHp + 1));

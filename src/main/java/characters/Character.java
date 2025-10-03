@@ -1,16 +1,17 @@
 package characters;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-
-@AllArgsConstructor
 public abstract class Character{
-    @Getter @Setter
     private int power;
-    @Getter
     private int hp;
 
+    public Character(int power, int hp) {
+        this.power = power;
+        this.hp = hp;
+    }
+
+    public Character() {
+        this(0, 0);
+    }
 
     public abstract void kick(Character c);
 
@@ -21,10 +22,22 @@ public abstract class Character{
     public void setHp(int hp) {
         this.hp = Math.max(0, hp);
     }
-    
+
     @Override
     public String toString() {
         return this.getClass().getSimpleName() + 
         "{power=" + power + ", hp=" + hp + "}";
+    }
+
+    public int getPower() {
+        return power;
+    }
+
+    public void setPower(int power) {
+        this.power = power;
+    }
+
+    public int getHp() {
+        return hp;
     }
 }
